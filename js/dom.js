@@ -52,3 +52,36 @@ function desplazar(){
     posicion -=10
   }*/
 }
+function construir(){
+  //console.log('Construir');
+  let div = document.getElementsByClassName('borde')[0]
+  //console.log(div);
+  //div.innerHTML='<p>Este es un texto <span>en negrita</span>.</p>'
+  let p=document.createElement('p')
+  div.appendChild(p)
+  let nodoTexto=document.createTextNode('Este es un texto...')
+  p.appendChild(nodoTexto)
+  let span=document.createElement('span')
+  p.appendChild(span)
+  span.classList.add('negrita')
+  span.classList.add('borde')
+  span.appendChild(document.createTextNode('en negrita'))
+  let img=document.createElement('img')
+  div.insertBefore(img,p)
+  //document.body.appendChild(img)
+  img.setAttribute('src','img/cacatua.jpeg')
+}
+
+function destruir(){
+  let p=document.querySelector('.borde p')
+  p=document.getElementsByClassName('borde')[0].getElementsByTagName('p')[0]
+  //console.log(p.innerHTML);
+  p.remove()
+}
+
+function destruirTodo(){
+  let div= document.getElementsByClassName('borde')[0]
+  while (div.firstElementChild) {
+    div.removeChild(div.firstElementChild)
+  }
+}
